@@ -15,7 +15,7 @@ import clientZoeCanaan from "@/assets/client-zoecanaan.jpg";
 import clientEtp from "@/assets/client-etp.jpg";
 import { SiteFrame } from "@/components/SiteFrame";
 import { motion } from "framer-motion";
-import { BadgeCheck, CalendarDays, Code2, Rocket, User, Users } from "lucide-react";
+import { BadgeCheck, Code2, Rocket, User, Users } from "lucide-react";
 
 const revealProps = {
   initial: { opacity: 0, y: 30 },
@@ -207,9 +207,8 @@ function Portfolio() {
           </div>
 
           {/* Stats row */}
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="mt-10 grid grid-cols-3 gap-3">
             {[
-              { icon: CalendarDays, value: "5+", label: "Ans d'expérience" },
               { icon: Rocket, value: "9", label: "Projets réalisés" },
               { icon: Users, value: "7+", label: "Clients satisfaits" },
               { icon: BadgeCheck, value: "100%", label: "Engagé" },
