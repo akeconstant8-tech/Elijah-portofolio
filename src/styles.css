@@ -1,0 +1,410 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --color-accent: #22c55e;
+  --color-accent-soft: #22c55e;
+  --color-accent-deep: #22c55e;
+  --color-ink: #071510;
+  --color-ink-soft: #0e2118;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* Custom gold cursor — hide native cursor on fine-pointer devices when enabled */
+@media (pointer: fine) {
+  html.gold-cursor-on,
+  html.gold-cursor-on body,
+  html.gold-cursor-on * {
+    cursor: none !important;
+  }
+}
+
+/* ============ Interactions premium — boutons & cartes ============ */
+@layer utilities {
+  /* Bouton or : lift + halo + balayage lumineux */
+  .btn-lux {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.35s ease,
+      filter 0.35s ease;
+  }
+  .btn-lux::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 75%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .btn-lux:hover::after,
+  .btn-lux:focus-visible::after {
+    transform: translateX(120%);
+  }
+  .btn-lux:hover,
+  .btn-lux:focus-visible {
+    transform: translateY(-3px);
+    box-shadow:
+      0 18px 40px -14px rgba(34, 197, 94, 0.65),
+      0 0 0 1px rgba(34, 197, 94, 0.5);
+  }
+  .btn-lux:active {
+    transform: translateY(-1px) scale(0.985);
+  }
+
+  /* Bouton contour or : remplissage doux depuis le bas */
+  .btn-lux-outline {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      color 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .btn-lux-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(34, 197, 94, 0.22), rgba(34, 197, 94, 0.08));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .btn-lux-outline:hover::before,
+  .btn-lux-outline:focus-visible::before {
+    transform: scaleY(1);
+  }
+  .btn-lux-outline:hover,
+  .btn-lux-outline:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(34, 197, 94, 0.9);
+    box-shadow: 0 16px 34px -18px rgba(34, 197, 94, 0.55);
+  }
+  .btn-lux-outline:active {
+    transform: translateY(-1px) scale(0.985);
+  }
+
+  /* Élévation douce pour cartes / vignettes */
+  .lift-lux {
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s ease,
+      border-color 0.5s ease;
+    will-change: transform;
+  }
+  .lift-lux:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 40px 80px -34px rgba(34, 197, 94, 0.45);
+  }
+
+  /* Soulignement doré animé pour liens de navigation */
+  .link-lux {
+    position: relative;
+  }
+  .link-lux::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #22c55e, transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .link-lux:hover::after,
+  .link-lux[data-status="active"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Pulsation lente du halo doré */
+  .glow-pulse {
+    animation: glow-pulse 3.6s ease-in-out infinite;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 34px 4px rgba(34, 197, 94, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-lux,
+  .btn-lux-outline,
+  .lift-lux,
+  .link-lux::after,
+  .glow-pulse {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ============ Animations d'entrée & micro-animations ============ */
+@layer utilities {
+  .anim-init {
+    opacity: 0;
+    transform: translateY(28px) scale(0.99);
+    filter: blur(6px);
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--anim-delay, 0ms),
+      transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--anim-delay, 0ms),
+      filter 0.8s ease var(--anim-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .anim-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* Entrée de page */
+  .page-enter {
+    animation: page-enter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  /* Flottement doux (photos, badges) */
+  .float-soft {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+
+  /* Halo lumineux qui respire */
+  .aura-soft {
+    animation: aura-soft 7s ease-in-out infinite;
+  }
+
+  /* Dégradé animé pour les titres */
+  .text-shine {
+    background-size: 220% auto;
+    animation: text-shine 7s linear infinite;
+  }
+
+  /* Apparition simple */
+  .fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes aura-soft {
+  0%,
+  100% {
+    opacity: 0.06;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.14;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes text-shine {
+  to {
+    background-position: 220% center;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-init,
+  .page-enter,
+  .float-soft,
+  .aura-soft,
+  .text-shine,
+  .fade-up {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
